@@ -1,4 +1,3 @@
-import express from "express";
 import fs from "fs";
 import validateUser from "../middlewares/userMiddleware";
 import { v4 as uuidv4 } from "uuid";
@@ -16,7 +15,8 @@ interface User {
     email: string;
     password: string;
 }
-const usersFilePath = path.join(process.cwd(), './usersDetails.json');
+const usersFilePath = path.join(process.cwd(), 'data/userDetails.json');
+console.log(usersFilePath)
 
 const readUsers = (): User[] => {
     try {
@@ -111,7 +111,7 @@ router.put('/userUpdate/:id', (req, res) => {
     });
 });
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/userDelete/:id', (req, res) => {
     const id = req.params.id;
     const usersDetails = readUsers();
     const userIndex = usersDetails.findIndex((user) => user.id === id);
