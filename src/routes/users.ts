@@ -82,6 +82,35 @@ router.post('/userLogin', (req, res) => {
     });
 });
 
+router.put('/userUpdate/:id', (req, res) => {
+    const id = req.params.id;
+    const { password } = req.body;
+    const usersDetails = readUsers();
+    const userIndex = usersDetails.findIndex(u => u.id === id);
+    if (userIndex === -1) {
+        return res.status(404).json({ message: "User not found" });
+    }
+    if (!password) {
+        return res.status(400).json({ error: "Password is required" });
+    }
+    const saltRounds = 10;
+    bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+        if (err) {
+            return res.status(500).json({ error: "Error hashing password" });
+        }
+
+        const user = usersDetails[userIndex];
+        if (user) {
+            user.password = hashedPassword;
+            writeUsers(usersDetails);
+            return res.status(200).json({
+                message: "Password updated successfully",
+                userId: user.id
+            });
+        }
+    });
+});
+
 router.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     const usersDetails = readUsers();
