@@ -37,6 +37,17 @@ router.get('/products', (req : Request, res : Response) => {
     const products = readProducts();
     return res.status(200).send(JSON.stringify(products))
 })
+router.get('/products/:id', (req: Request, res: Response) => {
+    const userId = req.params.id;
+    const products = readProducts();
+    const userProducts = products.filter((product) => product.userId === userId);
+    
+    if (userProducts.length === 0) {
+        return res.status(404).json({ message: "No products found for this user" });
+    }
+    
+    return res.status(200).json(userProducts);
+});
 
 router.post('/addProducts', authenticateMiddleware, (req: AuthRequest, res: Response) => {
     const { productName } = req.body;
@@ -56,4 +67,5 @@ router.post('/addProducts', authenticateMiddleware, (req: AuthRequest, res: Resp
         product: newProduct
     });
 })
+
 module.exports = router;
