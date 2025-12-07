@@ -1,20 +1,14 @@
 [
-    {
-        "id": "bff66edb-679e-4832-a288-83a72971bb66",
-        "name": "fatima",
-        "email": "fatima@gmail.com",
-        "password": "$2b$10$0/48v6Zvq0RWo8lYSEmx4OBKxSLxGgn504sgid2.4dGbvinKV6zpK"
-    },
-    {
-        "id": "00f69b26-c2c2-44f2-bc27-ac1871f8fc56",
-        "name": "zara",
-        "email": "zara@gmail.com",
-        "password": "$2b$10$NwEZ9oAPzXcNVeeuMYKVhOCK1olcDvREnH/g0MZgejSpcm8lMPKD6"
-    },
-    {
-        "id": "d5cbf795-76db-41dc-a490-65743f09fbe4",
-        "name": "ali",
-        "email": "ali@gmail.com",
-        "password": "$2b$10$dc3jPK3AGqoCqXyxq3C/Wua0Ga8UFk2D0.KqzuuUEcT1bKjUyfEu2"
-    }
+  {
+    "id": "a28fdb41-fe13-4a13-a969-1fb168fabd78",
+    "name": "zara",
+    "email": "zara@gmail.com",
+    "password": "$2b$10$6VWdqISEiwFXYoREg5HO8.xxTjDD8L/Q8H2mK/ADXKW5mkEQ.a13i"
+  },
+  {
+    "id": "fa4bee79-1e95-4170-b1fc-778726c9571d",
+    "name": "amna",
+    "email": "amna@gmail.com",
+    "password": "$2b$10$Hp7Ozm5T9Nq7jj6IefNUv.rcC1Rg3WsihBR2Nhuqlif72DFU4wUjS"
+  }
 ]
