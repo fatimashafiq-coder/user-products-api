@@ -98,4 +98,29 @@ router.put('/updateProduct/:id', authenticateMiddleware, (req: AuthRequest, res:
     });
 });
 
+router.delete('/deleteProduct/:id', authenticateMiddleware, (req: AuthRequest, res: Response) => {
+    const productId = req.params.id;
+    const products = readProducts();
+    const productIndex = products.findIndex((product) => product.userId === productId);
+    
+    if (productIndex === -1) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+    
+    const product = products[productIndex]!;
+    
+    if (product.userId !== req.user.id) {
+        return res.status(403).json({ message: "You can only delete your own products" });
+    }
+    
+    const deletedProduct = products.splice(productIndex, 1);
+    writeProducts(products);
+    
+    return res.status(200).json({
+        message: "Product deleted successfully",
+        product: deletedProduct[0]
+    });
+});
+
+
 module.exports = router;
