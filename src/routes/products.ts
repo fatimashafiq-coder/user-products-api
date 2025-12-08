@@ -94,7 +94,6 @@ router.put('/updateProduct/:id', authenticateMiddleware, (req: AuthRequest, res:
     
     return res.status(200).json({
         message: "Product updated successfully",
-        product: products[productIndex]
     });
 });
 
@@ -118,7 +117,6 @@ router.delete('/deleteProduct/:id', authenticateMiddleware, (req: AuthRequest, r
     
     return res.status(200).json({
         message: "Product deleted successfully",
-        product: deletedProduct[0]
     });
 });
 

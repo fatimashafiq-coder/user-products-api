@@ -53,7 +53,6 @@ router.post('/userSignup', validateUser, (req, res) => {
         writeUsers(usersDetails);
         return res.status(201).json({
             message: "User Signup Successfully",
-            userId: newUser.id
         });
     });
 });
@@ -105,7 +104,6 @@ router.put('/userUpdate/:id', (req, res) => {
             writeUsers(usersDetails);
             return res.status(200).json({
                 message: "Password updated successfully",
-                userId: user.id
             });
         }
     });
