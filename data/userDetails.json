@@ -1,0 +1,26 @@
+[
+  {
+    "id": "b59a0f9b-7cc2-4862-b029-a0b89ddacd80",
+    "name": "zara",
+    "email": "zara@gmail.com",
+    "password": "$2b$10$VEo6NfFT5.pIrSfmxUjmE.W4miLLURxapEFuHcVgiGhipJAgOwrgq"
+  },
+  {
+    "id": "78738c7c-49bf-4682-b28c-9c3467136f5d",
+    "name": "fatima",
+    "email": "fatima@gmail.com",
+    "password": "$2b$10$ZjSC8M/WugQvRiBmYbcGf.9PfB5sk8LpOmEkVVdHLrwRZluTcyGd."
+  },
+  {
+    "id": "aaa356ae-b568-4464-850b-fbc0a1594f84",
+    "name": "ali",
+    "email": "ali@gmail.com",
+    "password": "$2b$10$3Q5Q9Y1By0.AwxtfRZ9A2e3tEsGCFZecI6uSyDCCF57hKFHm4ta0i"
+  },
+  {
+    "id": "effce36b-f0c4-458c-85ae-5dc590977a44",
+    "name": "ahmed",
+    "email": "ahmed@gmail.com",
+    "password": "$2b$10$tBLGr3hhGy//FAGHrMKf2eiYum0uQYylhJgfpPp.G7/ZRY0FRW92m"
+  }
+]
