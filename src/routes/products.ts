@@ -68,4 +68,34 @@ router.post('/addProducts', authenticateMiddleware, (req: AuthRequest, res: Resp
     });
 })
 
+router.put('/updateProduct/:id', authenticateMiddleware, (req: AuthRequest, res: Response) => {
+    const productId = req.params.id;
+    const { productName } = req.body;
+    
+    if (!productName) {
+        return res.status(400).json({ error: "Product name is required" });
+    }
+    
+    const products = readProducts();
+    const productIndex = products.findIndex((product) => product.userId === productId);
+    
+    if (productIndex === -1) {
+        return res.status(404).json({ message: "Product not found" });
+    }
+    
+    const product = products[productIndex]!;
+    
+    if (product.userId !== req.user.id) {
+        return res.status(403).json({ message: "You can only update your own products" });
+    }
+    
+    product.productName = productName;
+    writeProducts(products);
+    
+    return res.status(200).json({
+        message: "Product updated successfully",
+        product: products[productIndex]
+    });
+});
+
 module.exports = router;
