@@ -30,7 +30,7 @@ const readProducts = (): Product[] => {
     }
 };
 const writeProducts = (products: Product[]): void => {
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+    fs.writeFileSync(productsFilePath, JSON.stringify(products));
 };
 
 router.get('/products', (req : Request, res : Response) => {
@@ -64,7 +64,6 @@ router.post('/addProducts', authenticateMiddleware, (req: AuthRequest, res: Resp
     
     return res.status(201).json({
         message: "Product added successfully",
-        product: newProduct
     });
 })
 

@@ -28,8 +28,8 @@ const readUsers = (): User[] => {
 };
 
 const writeUsers = (users: User[]): void => {
-    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-};
+    fs.writeFileSync(usersFilePath, JSON.stringify(users));
+};  
 
 router.post('/userSignup', validateUser, (req, res) => {
     const { name, email, password } = req.body;
