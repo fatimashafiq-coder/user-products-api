@@ -46,30 +46,53 @@
 
 {
   "compilerOptions": {
-    // Module system & target
-     "module": "nodenext",
-    "target": "esnext",
+    "target": "ES2020",
+    "module": "ES2020",
+    "lib": ["ES2020"],
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "verbatimModuleSyntax": false,
-    
-    // Type checking
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    
-    // Output files
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    
-    // Node types
-    "types": ["node", "express"],
-
-    // Misc
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force"
-  }
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
+
+// extra
+
+// {
+//   "compilerOptions": {
+//     // Module system & target
+//      "module": "nodenext",
+//     "target": "esnext",
+//     "esModuleInterop": true,
+//     "verbatimModuleSyntax": false,
+    
+//     // Type checking
+//     "strict": true,
+//     "noUncheckedIndexedAccess": true,
+//     "exactOptionalPropertyTypes": true,
+    
+//     // Output files
+//     "sourceMap": true,
+//     "declaration": true,
+//     "declarationMap": true,
+    
+//     // Node types
+//     "types": ["node", "express"],
+
+//     // Misc
+//     "skipLibCheck": true,
+//     "isolatedModules": true,
+//     "noUncheckedSideEffectImports": true,
+//     "moduleDetection": "force"
+//   }
+// }
 
