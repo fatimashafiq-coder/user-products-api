@@ -16,17 +16,21 @@ export const getProductById = async (req: AuthRequest, res: Response) => {
 
 export const addProduct = async (req: AuthRequest, res: Response) => {
   const { productName } = req.body;
-
-  if (!productName) {
-    return res.status(400).json({ error: "Product name is required" });
+  try {
+    await Product.create({
+      productName,
+      userId: req.user!.id,
+    });
+    res.status(201).json({ message: "Product added successfully" });
+  }
+  catch (err: any) {
+    if (err.name === "ValidationError") {
+      const errors = Object.values(err.errors).map((error: any) => error.message);
+      return res.status(400).json({ error: errors });
+    }
   }
 
-  await Product.create({
-    productName,
-    userId: req.user!.id,
-  });
 
-  res.status(201).json({ message: "Product added successfully" });
 };
 
 export const updateProduct = async (req: AuthRequest, res: Response) => {
